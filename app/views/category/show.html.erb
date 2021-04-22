@@ -3,5 +3,17 @@
 <h2 class="title is-3"><%= @categories.name %></h2>
 
 
+<% @products.each do |product|%>
+    
+    <ul>
+        <li>
+            <%= link_to product.name, product %>
+        </li>
+    </ul>
 
+    <figure class="image is-128x128">
+        <img src=<%= product.photo_image %> alt=<% product.name %>>
+    </figure>
+
+    <% end %>
 

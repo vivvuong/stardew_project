@@ -1,0 +1,25 @@
+<div class="columns">
+
+  <div class="column">
+    <h2>Categories</h2>
+    <ul>
+        <% @categories.each do |category|%>
+            <li>
+                <%= link_to category.name, category %>
+            </li>
+        <% end %>
+    </ul>
+  </div>
+
+  <div class="column">
+     <h2>Products</h2>
+        <ul>
+        <% @products.each do |product|%>
+            <li>
+                <%= link_to product.name, product %>
+            </li>
+        <% end %>
+    </ul>
+  </div>
+  
+</div>
