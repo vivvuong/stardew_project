@@ -1,25 +1,15 @@
 <div class="columns">
 
-  <div class="column">
-    <h2>Categories</h2>
-    <ul>
-        <% @categories.each do |category|%>
-            <li>
-                <%= link_to category.name, category %>
-            </li>
-        <% end %>
-    </ul>
-  </div>
+<section class="section">
+  <div class="container">
+    <img src="https://i.pinimg.com/originals/b8/1a/a4/b81aa44ba47c8ebb93c4525a96904101.jpg" alt="stardew_valley">
 
-  <div class="column">
-     <h2>Products</h2>
-        <ul>
-        <% @products.each do |product|%>
-            <li>
-                <%= link_to product.name, product %>
-            </li>
-        <% end %>
-    </ul>
+    <div class="buttons-test">
+    <p class="title is-1 is-centered">The Valley - Local Goods</p>
+    <%= link_to "Sale", sale_path, class: "button is-large is-fullwidth" %>
+    <%= link_to "Recently Added", recent_path, class: "button is-large is-fullwidth" %>
+    </div>
   </div>
+</section>
   
 </div>

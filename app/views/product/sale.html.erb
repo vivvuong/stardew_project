@@ -1,0 +1,11 @@
+<h2 class="title is-3">Sale Products</h2>
+
+<% @products.each do |product|%>
+    
+    <%= link_to product.name, product %>
+        
+    <figure class="image is-48x48">
+        <img src=<%= product.photo_image %> alt=<%= product.name %>>
+    </figure>
+
+<% end %>

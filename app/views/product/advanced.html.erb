@@ -1,0 +1,89 @@
+<h2 class="title is-3">Advanced Search</h2>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Exact Match</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <p class="control is-expanded has-icons-left">
+        <input class="input" name="q" type="text" placeholder="Name">
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+      </p>
+    </div>
+    
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Category</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+        <div class="select is-fullwidth">
+          <select>
+
+            <% @products.each do |product|%>
+                <option><%product.categories%></option>
+            <% end %>
+
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label">Sale items only?</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+        <label class="radio">
+          <input type="radio" name="member">
+          Yes
+        </label>
+        <label class="radio">
+          <input type="radio" name="member">
+          No
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <!-- Left empty for spacing -->
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" type="submit">
+          Go
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="title is-3">Search Results</h2>
+
+<% @products.each do |product|%>
+    
+    <figure class="image is-48x48">
+        <img src=<%= product.photo_image %> alt=<%= product.name %>>
+    </figure>
+
+
+    <%= link_to product.name, product %>
+    <p><%=product.description%></p>
+        
+<% end %>

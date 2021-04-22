@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= yield(:html_title) + " - " if content_for?(:html_title) %> The Valley</title>
@@ -11,29 +12,105 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
-
   <body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href=<%=root_path%>>
+          <img src="https://stardewvalleywiki.com/mediawiki/images/6/68/Main_Logo.png" width="48" height="48">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href=<%=root_path%>>
+            Home
+          </a>
+
+          <a class="navbar-item"  href=<%=product_index_path%>>
+            Products
+          </a>
+
+          <a class="navbar-item"  href=<%=category_index_path%>>
+            Categories
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More
+            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href=<%=about_index_path%>>
+                About
+              </a>
+              <a class="navbar-item">
+                Jobs
+              </a>
+              <a class="navbar-item">
+                Contact
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                Report an issue
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+
+          <div class="navbar-item">
+<form action="/search">
+          <div class="field has-addons">
+            <div class="control">
+              
+                <input class="input" name="q" type="text" placeholder="Search...", aria-label="Search">
+            </div>
+
+            <div class="control">
+                <button class="button is-info" type="submit">Go</button>            
+            </div>
+              
+</form>
+  
+              <%= link_to "Advanced search", advanced_path, class: "button is-primary" %>
+
+            </div>
+
+          <div class="navbar-item">
+            <div class="buttons">
+              <% if signed_in? %>
+                  <%= link_to "Sign out", sign_out_path, method: :delete, class: "button is-primary" %>
+                    <% if current_user.admin? %>
+                      <%= link_to "Admin Dashboard", rails_admin_path, class: "button is-light" %>
+                    <% end %>
+              <% else %>
+                <%= link_to "Sign up", sign_up_path, class: "button is-primary" %>
+                <%= link_to "Log in", sign_in_path, class: "button is-light" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+</nav>
 
 
-  <section class="section">
-   <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-  <% end %>
-      <div id="flash">
+ <section class="section">
+    <div class="container">
 
-      <% flash.each do |key, value| %>
-        <div class="flash <%= key %>"><%= value %></div>
-      <% end %>
+          <%= yield %>
     </div>
-
-<br>
-      <%= yield %>
   </section>
 
-  </body>
-
+</body>
 </html>
+
+

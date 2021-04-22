@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+ 
+ 
+/* Container needed to position the button. Adjust the width as needed */
+
+.section{
+    padding: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Make the image responsive */
+  .container img {
+    width: 100%;
+    height: fixed;
+  }
+  
+  /* Style the button and place it in the middle of the container/image */
+  .container .buttons-test {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: transparent;
+  }
+

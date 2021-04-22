@@ -37,6 +37,3 @@ puts "Created #{Product.count} products"
 
 u = User.last 
 puts u.inspect
-
-
-puts u.admin
