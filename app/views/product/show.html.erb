@@ -1,2 +1,17 @@
-<h1>Product#show</h1>
-<p>Find me in app/views/product/show.html.erb</p>
+<% content_for(:html_title) { @products.name } %>
+
+<h2 class="title is-3"><%= @products.name %></h2>
+
+<figure class="image is-128x128">
+    <img src=<%= @products.photo_image %> alt=<%= @products.name %>> 
+</figure>
+
+<div class="content">
+    <ul>
+        <li><%= @products.description %></li>
+        <li>Price - <%= @products.price %> gold</li>
+    </ul>
+</div>
+
+
+

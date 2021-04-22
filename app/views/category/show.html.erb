@@ -1,2 +1,7 @@
-<h1>Category#show</h1>
-<p>Find me in app/views/category/show.html.erb</p>
+<% content_for(:html_title) { @categories.name } %>
+
+<h2 class="title is-3"><%= @categories.name %></h2>
+
+
+
+

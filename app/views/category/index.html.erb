@@ -1,2 +1,10 @@
-<h1>Category#index</h1>
-<p>Find me in app/views/category/index.html.erb</p>
+<h2 class="title is-3">All Products</h2>
+
+    <% @categories.each do |category|%>
+    <ul class="ml-5">
+        <li>
+            <%= link_to category.name, category %>
+        </li>
+    </ul>
+
+<% end %>

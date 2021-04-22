@@ -1,7 +1,8 @@
 require "csv"
 
-Category.delete_all
 Product.delete_all
+Category.delete_all
+
 
 filename = Rails.root.join("db/stardew.csv")
 
