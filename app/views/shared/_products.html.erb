@@ -1,0 +1,14 @@
+<% @products.each do |product|%>
+
+    <%= link_to product.name, product %>    
+
+    <figure class="image is-48x48">
+        <img src=<%= product.photo_image %> alt=<%= product.name %>>
+    </figure>
+
+    <ul>
+        <li><%= product.description %></li>
+        <li>Price - <%= product.price %> gold</li>
+    </ul>
+
+<% end %>
